@@ -82,15 +82,21 @@ function handleYesClick() {
     window.location.href = "yes_page.html";
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() {
       let audio = document.getElementById("bg-music");
+
+      // Coba autoplay saat halaman dimuat
       let playPromise = audio.play();
-      
       if (playPromise !== undefined) {
           playPromise.then(() => {
               console.log("Autoplay berhasil!");
           }).catch(error => {
-              console.log("Autoplay dicegah, menunggu interaksi user.", error);
+              console.log("Autoplay dicegah, butuh interaksi user.");
           });
       }
+
+      // Tambahkan event listener untuk interaksi pertama
+      document.body.addEventListener("click", function() {
+          audio.play();
+      }, { once: true });
   });
