@@ -83,15 +83,14 @@ function handleYesClick() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    let audio = document.createElement("audio");
-    audio.src = "gluesong.mp3";
-    audio.autoplay = true;
-    audio.loop = true;
-    audio.volume = 0.5;
-    
-    document.body.appendChild(audio);
-    
-    audio.play().catch(error => {
-        console.log("Autoplay dicegah oleh browser. User harus berinteraksi dulu.", error);
-    });
-});
+      let audio = document.getElementById("bg-music");
+      let playPromise = audio.play();
+      
+      if (playPromise !== undefined) {
+          playPromise.then(() => {
+              console.log("Autoplay berhasil!");
+          }).catch(error => {
+              console.log("Autoplay dicegah, menunggu interaksi user.", error);
+          });
+      }
+  });
