@@ -84,7 +84,7 @@ function handleYesClick() {
 
 document.addEventListener("DOMContentLoaded", function() {
     let audio = document.createElement("audio");
-    audio.src = "audio/glue_song.mp3";
+    audio.src = "gluesong.mp3";
     audio.autoplay = true;
     audio.loop = true;
     audio.volume = 0.5;
